@@ -1,11 +1,11 @@
 (1..100).each do |i|
   if i % 3 == 0 && i % 5 == 0
-    puts "fizzbuzz"; next
+    puts "fizzbuzz"
   elsif i % 3 == 0
-    puts "fizz"; next
-    next
+    puts "fizz"
   elsif i % 5 == 0
-    puts "buzz"; next
+    puts "buzz"
+  else
+    puts i
   end
-  puts i
 end
