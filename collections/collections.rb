@@ -21,7 +21,9 @@ array.each {|name| puts name}
   # should transform into
   # ["blake", "scott", "ashley"]
 
-second_array = ["blake", "scott", "ashley"]
+second_array = ["blake", "ashley", "scott"]
+second_array[1] = "scott"
+second_array[2] = "ashley"
 
 # 7. using the following array create a hash where the elements in the array are the keys and the values of the hash are those elements with the 3rd character changed to a dollar sign.
 hash = {}
