@@ -1,11 +1,9 @@
-(1..100).each do |i|
-  if i % 3 == 0 && i % 5 == 0
-    puts "fizzbuzz"
-  elsif i % 3 == 0
-    puts "fizz"
-  elsif i % 5 == 0
-    puts "buzz"
-  else
-    puts i
+fizzbuzzes = (1..100).to_a.map do |i|
+  if i % 15 == 0 then "fizzbuzz"
+  elsif i % 3 == 0 then "fizz"
+  elsif i % 5 == 0 then "buzz"
+  else i
   end
 end
+
+puts fizzbuzzes
