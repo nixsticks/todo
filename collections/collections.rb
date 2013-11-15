@@ -29,8 +29,9 @@ second_array[2] = "ashley"
 hash = {}
 
 second_array.each do |name|
-  name[2] = '$'
-  hash[name] = name
+  length = name.length - 1
+  new_name = name[0..1] + "$" + name[3..length]
+  hash[name] = new_name
 end
 
 # Technically I changed the array too, but since we never use it again I figure it doesn't matter :)
