@@ -34,8 +34,6 @@ second_array.each do |name|
   hash[name] = new_name
 end
 
-# Technically I changed the array too, but since we never use it again I figure it doesn't matter :)
-
 # 8. create a hash with two keys, "greater_than_10", "less_than_10" and their values will be an array of any numbers greater than 10 or less than 10 in the following array
 num_hash = {
   :greater_than_10 => [],
