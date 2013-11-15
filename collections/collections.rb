@@ -74,13 +74,10 @@ my_story = "The summer of tenth grade was the best summer of my life.  I went to
 # Count how many times each word appears in my story.
 # Tip: You'll need to use Hash.new(0) to do this rather than creating a hash using literal syntax like {}.
  
-my_story.map! {|word| word.gsub(/[.,!?]/, "") }
+my_story.map! {|word| word.downcase.gsub(/[.,!?]/, "") }
 
 word_count = Hash.new(0)
-my_story.each do |word| 
-  word_downcased = word.downcase
-  word_count[word_downcased] += 1
-end
+my_story.each {|word| word_count[word] += 1}
 
 
 # song library
