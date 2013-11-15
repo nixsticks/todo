@@ -3,7 +3,7 @@
 
 class String
   def count_sentences
-    sentences = /[.,!?]/ =~ self
+    sentences = /[.!?]/ =~ self
     sentences == nil ? 0 : sentences
   end
 end
