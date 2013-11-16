@@ -63,7 +63,7 @@ class MagicEightBall
   end
 
   def ensure_yes_no_answer
-    while ["yes", "no", "y", "n"].include?(@answer) == false
+    while //
       puts "Please answer yes or no."
       get_answer
     end

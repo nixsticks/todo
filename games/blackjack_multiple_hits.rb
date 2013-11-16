@@ -18,11 +18,11 @@ class Deck
 end
 
 class Blackjack
-  attr_accessor :counter, :turns, :deck, :card
+  attr_accessor :counter, :deck, :card, :lose
 
   def initialize
     @counter = 0
-    @turns = 0
+    @lose = false
   end
 
   def blank_line
@@ -39,7 +39,7 @@ class Blackjack
       case gets.chomp
       when /^y(es)?$/i
         return true
-      when /^no?$/
+      when /^no?$/i
         return false
       end
       puts "Please enter yes or no."
@@ -75,19 +75,18 @@ class Blackjack
   def deal
     @card = deck.cards.sample
     deck.cards.delete(card)
-    @turns += 1
     puts card
   end
 
   def hit_or_stay
-    if @turns == 2
+    until @counter >= 21
       puts "Hit or stay?"
       case gets.chomp
       when /^h(it)?$/i
         blank_line
         return
       when /^s(tay)?$/i
-        @turns = 3
+        @lose = true
         blank_line
         win_or_lose
       else
@@ -98,13 +97,10 @@ class Blackjack
   end
 
   def pick_a_card
-    while @turns < 3
-      hit_or_stay
-      puts "Press enter to receive a card."
-      deal if gets == "\n"
-      score
-      win_or_lose
-    end
+    hit_or_stay
+    deal
+    score
+    win_or_lose
     play_again_message
   end 
 
@@ -123,7 +119,7 @@ class Blackjack
     if @counter == 21
       puts "BLACKJACK!\n"
       play_again_message
-    elsif @turns == 3
+    elsif @counter >= 21 || @lose == true
       puts "Sorry, you lose.\n"
       play_again_message
     else 
@@ -148,8 +144,8 @@ class Blackjack
   end
 
   def reset
-    @turns = 0
     @counter = 0
+    @lose = false
   end
 
   def run
