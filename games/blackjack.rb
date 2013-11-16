@@ -59,7 +59,7 @@ class Blackjack
       sleep(1)
     when "no", "n"
       puts "\nTerrible choice."
-      Kernel.exit
+      exit
     end
   end 
 
