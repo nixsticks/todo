@@ -9,7 +9,7 @@
 #If the user says no, have it end.
 
 class MagicEightBall
-  attr_accessor :messages, :answer
+  attr_accessor :messages
 
   def initialize
     @messages = [
@@ -30,7 +30,6 @@ class MagicEightBall
       "VERY DOUBTFUL",
       "MY REPLY IS NO"
     ]
-    @answer
   end
 
   def shake
@@ -50,22 +49,27 @@ class MagicEightBall
   end
 
   def get_answer
-    @answer = gets.chomp.downcase
-    ensure_yes_no_answer
-    case @answer
-    when "yes", "y"
+    case ask_yes_no
+    when true
       message
-    when "no", "n"
+    when false
       puts "\nGOODBYE\n"
       exit
+    else
+      ask_yes_no
     end
-    blank_line
+    puts
   end
 
-  def ensure_yes_no_answer
-    while //
-      puts "Please answer yes or no."
-      get_answer
+  def ask_yes_no
+    while true
+      case gets.chomp
+      when /^y(es)?$/i
+        return true
+      when /^no?$/i
+        return false
+      end
+      puts "Please enter yes or no."
     end
   end
 
