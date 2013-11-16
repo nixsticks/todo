@@ -39,7 +39,7 @@ class Blackjack
       case gets.chomp
       when /^y(es)?$/i
         return true
-      when /^no?$/
+      when /^no?$/i
         return false
       end
       puts "Please enter yes or no."
@@ -49,7 +49,7 @@ class Blackjack
   def play
     if ask_yes_no
       puts "\nHave a seat!\n\nDrawing up a chair...\n\n"
-      sleep(1)
+      sleep(2)
     else
       puts "\nTerrible choice."
       exit
@@ -85,7 +85,7 @@ class Blackjack
       case gets.chomp
       when /^h(it)?$/i
         blank_line
-        return
+        deal
       when /^s(tay)?$/i
         @turns = 3
         blank_line
@@ -94,18 +94,18 @@ class Blackjack
         puts "Please say hit or stay."
         hit_or_stay
       end
+    else
+      puts "Press enter to receive a card."
+      deal if gets == "\n"
     end
   end
 
   def pick_a_card
     while @turns < 3
       hit_or_stay
-      puts "Press enter to receive a card."
-      deal if gets == "\n"
       score
       win_or_lose
     end
-    play_again_message
   end 
 
   def score
@@ -122,13 +122,12 @@ class Blackjack
   def win_or_lose
     if @counter == 21
       puts "BLACKJACK!\n"
-      play_again_message
     elsif @turns == 3
       puts "Sorry, you lose.\n"
-      play_again_message
     else 
       pick_a_card
     end
+    play_again_message
   end
 
   def play_again_message

@@ -43,8 +43,7 @@ class MagicEightBall
     sleep(4)
     puts "And the answer is..."
     sleep(2)
-    puts messages.sample
-    puts
+    puts messages.sample + "\n\n"
     shake_again
   end
 
