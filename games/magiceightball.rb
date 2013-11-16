@@ -38,9 +38,10 @@ class MagicEightBall
   end
 
   def shake
+    image
     puts "Would you like to shake the Magic Eight-Ball?"
     get_answer
-    message
+    blank_line
   end
 
   def message
@@ -53,11 +54,18 @@ class MagicEightBall
 
   def get_answer
     @answer = gets.chomp.downcase
-    yes_no
+    ensure_yes_no_answer
+    case @answer
+    when "yes", "y"
+      message
+    when "no", "n"
+      puts "GOODBYE"
+      exit
+    end
     blank_line
   end
 
-  def yes_no
+  def ensure_yes_no_answer
     while ["yes", "no", "y", "n"].include?(@answer) == false
       puts "Please answer yes or no."
       get_answer
@@ -67,13 +75,24 @@ class MagicEightBall
   def shake_again
     puts "Would you like to shake again?"
     get_answer
-    case @answer
-    when "yes", "y"
-      message
-    when "no", "n"
-      puts "Goodbye!"
-      exit
-    end
+  end
+
+  def image
+    puts "              _......._
+           .-:::::::::::-.
+         .:::::::::::::::::.
+        ::::::: .-...  :::::::
+       :::::::  :   :  :::::::
+      ::::::::  :   :  ::::::::
+      :::::::::._`-'_.:::::::::
+      :::::::::' .-. `:::::::::
+      ::::::::  :   :  ::::::::
+       :::::::  :   :  :::::::
+        :::::::._`-'_.:::::::
+         `:::::::::::::::::'
+           `-:::::::::::::`
+              `'''''''``\""
+    blank_line
   end
 end
 
