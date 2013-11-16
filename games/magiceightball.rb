@@ -33,22 +33,19 @@ class MagicEightBall
     @answer
   end
 
-  def blank_line
-    puts
-  end
-
   def shake
     image
     puts "Would you like to shake the Magic Eight-Ball?"
     get_answer
-    blank_line
   end
 
   def message
-    puts "Think hard about what you would like to ask..."
-    sleep(5)
+    puts "\nThink hard about what you would like to ask..."
+    sleep(4)
+    puts "And the answer is..."
+    sleep(2)
     puts messages.sample
-    blank_line
+    puts
     shake_again
   end
 
@@ -59,7 +56,7 @@ class MagicEightBall
     when "yes", "y"
       message
     when "no", "n"
-      puts "GOODBYE"
+      puts "\nGOODBYE\n"
       exit
     end
     blank_line
@@ -78,7 +75,7 @@ class MagicEightBall
   end
 
   def image
-    puts "              _......._
+    print "              _......._
            .-:::::::::::-.
          .:::::::::::::::::.
         ::::::: .-...  :::::::
@@ -91,8 +88,7 @@ class MagicEightBall
         :::::::._`-'_.:::::::
          `:::::::::::::::::'
            `-:::::::::::::`
-              `'''''''``\""
-    blank_line
+              `'''''''``\"\n"
   end
 end
 
