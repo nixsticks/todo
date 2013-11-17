@@ -109,7 +109,7 @@ class Blackjack
   end 
 
   def score
-    if ["K", "Q", "J", "1"].include? card[0]
+    if /^[KQJ1]/.match(card[0]) != nil
       @counter += 10
     elsif card[0] == "A"
       counter > 11 ? @counter += 1 : @counter += 11
