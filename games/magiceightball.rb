@@ -42,25 +42,31 @@ class MagicEightBall
     puts "\nThink hard about what you would like to ask..."
     sleep(4)
     puts "And the answer is..."
-    sleep(2)
-    puts messages.sample + "\n\n"
+    # sleep(2)
+    stars
+    print messages.sample + "\n\n"
     shake_again
   end
 
   def get_answer
-    case ask_yes_no
-    when true
+    if answer_yes
       message
-    when false
+    else
       puts "\nGOODBYE\n"
       exit
-    else
-      ask_yes_no
     end
     puts
   end
 
-  def ask_yes_no
+  def stars
+    5.times do 
+      print "* "
+      sleep(0.7)
+    end
+    10.times {print "\b"}
+  end
+
+  def answer_yes
     while true
       case gets.chomp
       when /^y(es)?$/i

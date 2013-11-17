@@ -79,6 +79,7 @@ class Blackjack
   end
 
   def hit_or_stay
+    puts "Hit or stay?"
     until @counter >= 21
       if hit
         blank_line
@@ -93,7 +94,6 @@ class Blackjack
 
   def hit
     while true
-      puts "Hit or stay?"
       case gets.chomp
       when /^h(it)?$/i
         return true
@@ -112,7 +112,7 @@ class Blackjack
   end 
 
   def score
-    if /^[KQJ1]/.match(card[0]) != nil
+    if /^[KQJ1]/.match(card[0])
       @counter += 10
     elsif card[0] == "A"
       counter > 11 ? @counter += 1 : @counter += 11
