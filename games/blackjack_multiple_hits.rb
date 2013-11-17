@@ -80,19 +80,27 @@ class Blackjack
 
   def hit_or_stay
     until @counter >= 21
-      puts "Hit or stay?"
-      case gets.chomp
-      when /^h(it)?$/i
+      if hit
         blank_line
         return
-      when /^s(tay)?$/i
+      else
         @lose = true
         blank_line
         win_or_lose
-      else
-        puts "Please say hit or stay."
-        hit_or_stay
       end
+    end
+  end
+
+  def hit
+    while true
+      puts "Hit or stay?"
+      case gets.chomp
+      when /^h(it)?$/i
+        return true
+      when /^s(tay)?$/i
+        return false
+      end
+      puts "Please enter hit or stay."
     end
   end
 
@@ -101,7 +109,6 @@ class Blackjack
     deal
     score
     win_or_lose
-    play_again_message
   end 
 
   def score
@@ -118,13 +125,12 @@ class Blackjack
   def win_or_lose
     if @counter == 21
       puts "BLACKJACK!\n"
-      play_again_message
     elsif @counter >= 21 || @lose == true
       puts "Sorry, you lose.\n"
-      play_again_message
     else 
       pick_a_card
     end
+    play_again_message
   end
 
   def play_again_message
