@@ -72,7 +72,7 @@ pigeon_data[:color].each do |symbol, array|
     pigeon_list[name] = {}
     pigeon_data.each do |sym, hash| 
       if sym == :color
-        pigeon_list[name][sym] = [] if sym == :color
+        pigeon_list[name][sym] = []
       else
         pigeon_list[name][sym] = ""
       end
