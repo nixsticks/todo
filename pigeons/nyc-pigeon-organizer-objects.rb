@@ -46,6 +46,17 @@
 #   }
 # }
 
+class Pigeon
+  attr_accessor :name, :color, :gender, :lives
+
+  def initialize(name)
+    @name = name
+    @color = []
+    @gender
+    @lives
+  end
+end
+
 pigeon_data = {
   :color => {
     :purple => ["Theo", "Peter Jr.", "Lucky"],
@@ -65,31 +76,36 @@ pigeon_data = {
   }
 }
 
-pigeon_list = {}
+pigeons = []
 
-pigeon_data[:color].each do |symbol, array|
-  array.each do |name| 
-    pigeon_list[name] = {}
-    pigeon_data.each do |sym, hash| 
-      if sym == :color
-        pigeon_list[name][sym] = [] if sym == :color
-      else
-        pigeon_list[name][sym] = ""
-      end
+pigeon_data.each do |symbol, hash|
+  hash.each do |symbol2, array|
+    array.each do |name| 
+      pigeon = Pigeon.new(name)
+      pigeons << pigeon
     end
   end
 end
 
-pigeon_data.each do |symbol, hash|
-  hash.each do |symbol2, array|
-    array.each do |name|
-      if symbol == :color
-        pigeon_list[name][symbol] << symbol2.to_s
-      else
-        pigeon_list[name][symbol] = symbol2.to_s
-      end
-    end
+pigeons.each do |pigeon|
+  pigeon_data[:color].each do |color, names|
+    pigeon.color << color.to_s if names.include?(pigeon.name)
   end
+  pigeon_data[:gender].each do |gender, names|
+    pigeon.gender = gender.to_s if names.include?(pigeon.name)
+  end
+  pigeon_data[:lives].each do |home, names|
+    pigeon.lives = home.to_s if names.include?(pigeon.name)
+  end
+end
+
+pigeon_list = {}
+
+pigeons.each do |pigeon|
+  pigeon_list[pigeon.name] = {}
+  pigeon_list[pigeon.name][:color] = pigeon.color
+  pigeon_list[pigeon.name][:gender] = pigeon.gender
+  pigeon_list[pigeon.name][:lives] = pigeon.lives
 end
 
 puts pigeon_list
