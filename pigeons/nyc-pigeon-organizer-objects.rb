@@ -81,8 +81,7 @@ pigeons = []
 pigeon_data.each do |symbol, hash|
   hash.each do |symbol2, array|
     array.each do |name| 
-      pigeon = Pigeon.new(name)
-      pigeons << pigeon
+      pigeons << Pigeon.new(name)
     end
   end
 end
