@@ -34,7 +34,7 @@ class Blackjack
     play
   end
 
-  def ask_yes_no
+  def yes
     while true
       case gets.chomp
       when /^y(es)?$/i
@@ -47,7 +47,7 @@ class Blackjack
   end
 
   def play
-    if ask_yes_no
+    if yes
       puts "\nHave a seat!\n\nDrawing up a chair...\n\n"
       sleep(2)
     else
@@ -60,6 +60,9 @@ class Blackjack
     number = gets.chomp.to_i
     if number <= 0
       puts "Please enter a positive integer."
+      deck_number
+    elsif number > 10
+      puts "I don't have that many cards. Pick a smaller number."
       deck_number
     else
       number
@@ -80,7 +83,7 @@ class Blackjack
   end
 
   def hit_or_stay
-    if @turns == 2
+    if @turns >= 2
       puts "Hit or stay?"
       case gets.chomp
       when /^h(it)?$/i
@@ -136,7 +139,7 @@ class Blackjack
   end
 
   def play_again
-    if ask_yes_no
+    if yes
       reset
       blank_line
       pick_a_card
