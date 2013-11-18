@@ -15,6 +15,7 @@ describe "#fizzbuzz" do
 
   it "should return the number itself when the number is not divisible by five or three" do
     expect(fizzbuzz(2)).to eq(2)
+    expect(fizzbuzz(2)).not_to eq("fizz")
   end
 
   it "should raise an error if the argument given is not an integer" do
