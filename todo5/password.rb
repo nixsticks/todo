@@ -12,6 +12,21 @@ def encode(password)
   joined_password
 end
 
+# This one uses intuition to change password_array[3] to password_array[2]
+# def decode(joined_password)
+#   joined_password.gsub!("ashley", " ")
+#   joined_password.gsub!("blake", "e")
+#   new_password_array = joined_password.split(" ")
+#   password_array = []
+#   password_array[1] = new_password_array[1]
+#   password_array[0] = new_password_array.last
+#   password_array[2] = new_password_array.first
+#   password = password_array.join("_")
+#   password = password.to_sym
+# end
+
+
+# And this one actually just reverses the first one
 def decode(joined_password)
   joined_password.gsub!("ashley", " ")
   joined_password.gsub!("blake", "e")
@@ -19,9 +34,10 @@ def decode(joined_password)
   password_array = []
   password_array[1] = new_password_array[1]
   password_array[0] = new_password_array.last
-  password_array[2] = new_password_array.first
+  password_array[3] = new_password_array.first
   password = password_array.compact.join("_")
   password = password.to_sym
 end
+
 
 puts decode("intblakernblaketsashleythblakeashleyall")
