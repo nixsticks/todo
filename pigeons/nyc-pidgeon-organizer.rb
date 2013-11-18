@@ -83,11 +83,7 @@ end
 pigeon_data.each do |symbol, hash|
   hash.each do |symbol2, array|
     array.each do |name|
-      if symbol == :color
-        pigeon_list[name][symbol] << symbol2.to_s
-      else
-        pigeon_list[name][symbol] = symbol2.to_s
-      end
+      pigeon_list[name][symbol] << symbol2.to_s
     end
   end
 end
