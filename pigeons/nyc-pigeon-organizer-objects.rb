@@ -107,4 +107,4 @@ pigeons.each do |pigeon|
   pigeon_list[pigeon.name][:lives] = pigeon.lives
 end
 
-puts pigeon_list
+pigeon_list
