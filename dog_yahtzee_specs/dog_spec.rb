@@ -8,11 +8,8 @@ describe Dog do
       expect(dog).to be_an_instance_of(Dog)
     end
 
-    it "should set the age to 1 or above" do
+    it "should set the age between 1 and 14" do
       expect(dog.age).to be >= 1 
-    end
-
-    it "should set the 14 or below" do
       expect(dog.age).to be <= 14
     end
   end

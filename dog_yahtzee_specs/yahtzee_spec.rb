@@ -4,10 +4,16 @@ describe Yahtzee do
   let(:yahtzee) {Yahtzee.new}
 
   describe "#roll_dice" do
-    it "should return an array of random numbers between 1 and 6" do
+    it "should return an array of 5 random numbers" do
       expect(yahtzee.roll_dice).to be_an(Array)
+      expect(yahtzee.roll_dice.size).to be(5)
+    end
+
+    it "should return an array of numbers between 1 and 6" do
       expect(yahtzee.roll_dice.reduce(:+)).to be <= 30
       expect(yahtzee.roll_dice.reduce(:+)).to be >= 5
+      expect(yahtzee.roll_dice.sample).to be <=6
+      expect(yahtzee.roll_dice.sample).to be >=1
     end
   end
 
