@@ -7,11 +7,13 @@ fizzbuzzes = (1..100).map do |i|
 end
 
 def fizzbuzz(num)
+  if num.is_a?(Integer) == false
+    raise TypeError, "Please pass in an integer."
+  end
+
   if num % 15 == 0 then "fizzbuzz"
   elsif num % 3 == 0 then "fizz"
   elsif num % 5 == 0 then "buzz"
   else num
   end
 end
-
-puts fizzbuzz(5)
