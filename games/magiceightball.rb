@@ -9,10 +9,7 @@
 #If the user says no, have it end.
 
 class MagicEightBall
-  attr_accessor :messages
-
-  def initialize
-    @messages = [
+  MESSAGES = [
       "ASK AGAIN TOMORROW", 
       "ALL SIGNS POINT TO YES",
       "WITHOUT A DOUBT",
@@ -30,7 +27,6 @@ class MagicEightBall
       "VERY DOUBTFUL",
       "MY REPLY IS NO"
     ]
-  end
 
   def shake
     image
@@ -44,7 +40,7 @@ class MagicEightBall
     puts "And the answer is..."
     # sleep(2)
     stars
-    print messages.sample + "\n\n"
+    print MESSAGES.sample + "\n\n"
     shake_again
   end
 
