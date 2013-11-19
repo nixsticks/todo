@@ -18,9 +18,13 @@ class Magic8
     gets.chomp.downcase
   end
 
+  def get_message
+    MESSAGES.sample
+  end
+
   def shake(get_input)
     if get_input == 'yes'
-      MESSAGES.sample
+      get_message
     elsif get_input=='no'
       "Whatever. I didn't want to tell your fortune anyway."
     else
