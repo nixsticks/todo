@@ -5,8 +5,7 @@ def apple_picker(array)
 end
 
 def apple_picker_collect(array)
-  apples = array.collect {|item| item == "apple" ? item : next}
-  apples.compact!
+  apples = array.collect{|item| item == "apple" ? item : next}.compact!
 end
 
 def apple_picker_select(array)
