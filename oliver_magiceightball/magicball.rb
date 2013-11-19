@@ -30,7 +30,7 @@ class Magic8
 
   def run
     puts greeting
-    # puts shake(get_input)
+    puts shake(get_input)
   end
 end
 

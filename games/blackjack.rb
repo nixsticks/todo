@@ -29,8 +29,12 @@ class Blackjack
     puts
   end
 
+  def display(message)
+    puts message
+  end
+
   def start_game
-    puts "\nWelcome to my casino! \nWould you like to play a game of Blackjack?"
+    display "\nWelcome to my casino! \nWould you like to play a game of Blackjack?"
     play
   end
 
@@ -42,16 +46,16 @@ class Blackjack
       when /^no?$/i
         return false
       end
-      puts "Please enter yes or no."
+      display "Please enter yes or no."
     end
   end
 
   def play
     if yes
-      puts "\nHave a seat!\n\nDrawing up a chair...\n\n"
+      display "\nHave a seat!\n\nDrawing up a chair...\n\n"
       sleep(2)
     else
-      puts "\nTerrible choice."
+      display "\nTerrible choice."
       exit
     end
   end 
@@ -59,10 +63,10 @@ class Blackjack
   def deck_number
     number = gets.chomp.to_i
     if number <= 0
-      puts "Please enter a positive integer."
+      display "Please enter a positive integer."
       deck_number
     elsif number > 10
-      puts "I don't have that many cards. Pick a smaller number."
+      display "I don't have that many cards. Pick a smaller number."
       deck_number
     else
       number
@@ -70,7 +74,7 @@ class Blackjack
   end
 
   def no_of_decks
-    puts "How many decks would you like to use?"
+    display "How many decks would you like to use?"
     @deck = Deck.new(deck_number)
     blank_line
   end
@@ -79,12 +83,12 @@ class Blackjack
     @card = deck.cards.sample
     deck.cards.delete(card)
     @turns += 1
-    puts card
+    display card
   end
 
   def hit_or_stay
     if @turns >= 2
-      puts "Hit or stay?"
+      display "Hit or stay?"
       case gets.chomp
       when /^h(it)?$/i
         blank_line
@@ -94,11 +98,11 @@ class Blackjack
         blank_line
         win_or_lose
       else
-        puts "Please say hit or stay."
+        display "Please say hit or stay."
         hit_or_stay
       end
     else
-      puts "Press enter to receive a card."
+      display "Press enter to receive a card."
       deal if gets == "\n"
     end
   end
@@ -119,14 +123,14 @@ class Blackjack
     else
       @counter += card[0].to_i
     end
-    puts "Your total is #{counter}.\n\n"
+    display "Your total is #{counter}.\n\n"
   end
 
   def win_or_lose
     if @counter == 21
-      puts "BLACKJACK!\n"
+      display "BLACKJACK!\n"
     elsif @turns == 3
-      puts "Sorry, you lose.\n"
+      display "Sorry, you lose.\n"
     else 
       pick_a_card
     end
@@ -134,7 +138,7 @@ class Blackjack
   end
 
   def play_again_message
-    puts "\nWould you like to play again?"
+    display "\nWould you like to play again?"
     play_again
   end
 
@@ -144,7 +148,7 @@ class Blackjack
       blank_line
       pick_a_card
     else
-      puts "Goodbye! Thank you for playing."
+      display "Goodbye! Thank you for playing."
       exit
     end
   end
@@ -161,5 +165,5 @@ class Blackjack
   end
 end
 
-game = Blackjack.new
-game.run
+# game = Blackjack.new
+# game.run
