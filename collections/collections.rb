@@ -54,15 +54,14 @@ end
 [1,2,3].concat([5,9,4])
 
 # 11. find all words that begin with "a" in the following array
-words_beginning_with_a = []
-
-["apple", "orange", "pear", "avis", "arlo", "ascot" ].each {|word| word[0] == "a" ? words_beginning_with_a << word : next}
+words_beginning_with_a = ["apple", "orange", "pear", "avis", "arlo", "ascot" ].select {|word| word.match(/^a/i)}
 
 # 11. sum all the numbers in the following array
 [11,4,7,8,9,100,134].inject(0) {|sum, number| sum + number}
+# or [11,4,7,8,9,100,134].reduce(:+)
 
 # 12. Add an "s" to each word in the array except for the 2nd element in the array
-["hand","feet", "knee", "table"].map {|word| word == "feet" ? word : word += "s"}
+["hand","feet", "knee", "table"].map! {|word| word == "feet" ? word : word += "s"}
 
 
 # CHALLENGE
