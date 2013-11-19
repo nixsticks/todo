@@ -84,8 +84,9 @@ new_languages = {}
 
 languages.each do |key, hash|
   hash.each do |key2, hash2|
-    new_languages[key2] = hash2
-    new_languages[key2][:style] = [key]
+    new_languages[key2] ||= hash2
+    new_languages[key2][:style] ||= []
+    new_languages[key2][:style] << key
   end
 end
 
