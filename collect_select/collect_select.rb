@@ -13,6 +13,7 @@
 
 class Array
   def my_collect
+    return self.to_enum unless block_given?
     n = 0
     new_array = []
     while n < self.length # this is because the last index is length - 1
@@ -24,6 +25,7 @@ class Array
   end
 
   def my_select
+    return self.to_enum unless block_given?
     n = 0
     while n < self.length
       if yield(self[n]) == true
