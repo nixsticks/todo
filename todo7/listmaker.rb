@@ -11,7 +11,7 @@
 class Array
   def make_list
     array = []
-    each_with_index{|item, i| array << "#{i+1}. #{item}"}
+    each_with_index{|item, i| item == nil ? next : array << "#{i+1}. #{item}"}
     array
   end
 end
