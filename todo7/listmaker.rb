@@ -10,8 +10,6 @@
 
 class Array
   def make_list
-    array = []
-    each_with_index{|item, i| item == nil ? next : array << "#{i+1}. #{item}"}
-    array
+    compact.each_with_index.map{|item, i| "#{i+1}. #{item}"}
   end
 end

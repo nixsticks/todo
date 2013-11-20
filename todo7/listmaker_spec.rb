@@ -7,6 +7,6 @@ describe 'Array, #make_list' do
   end
 
   it 'should remove nil elements' do
-    expect([2, nil, 5].make_list).to eq(["1. 2", "3. 5"])
+    expect([2, nil, 5].make_list).to eq(["1. 2", "2. 5"])
   end
 end
