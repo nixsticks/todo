@@ -28,9 +28,7 @@ class Array
     return self.to_enum unless block_given?
     n = 0
     while n < self.length
-      if yield(self[n]) == true
-        return self[n]
-      end
+      return self[n] if yield(self[n])
       n += 1
     end
   end
