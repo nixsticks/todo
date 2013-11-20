@@ -16,9 +16,9 @@ describe Array do
       expect([1,2,3,4].my_select).to be_a_kind_of(Enumerator)
     end
 
-    it 'should return the first element for which the block returns true' do
-      expect([4,4,5,7,9].my_select {|num| num == 4}).to eq(4)
-      expect(["hello", "apple", "orange"].my_select {|word| word == "orange"}).to eq("orange")
+    it 'should return a new array of all the elements for which the block returns true' do
+      expect([4,4,5,7,9].my_select {|num| num == 4}).to eq([4,4])
+      expect(["hello", "apple", "orange"].my_select {|word| word == "orange"}).to eq(["orange"])
     end
   end
 end

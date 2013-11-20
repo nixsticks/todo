@@ -27,9 +27,11 @@ class Array
   def my_select
     return self.to_enum unless block_given?
     n = 0
+    new_array = []
     while n < self.length
-      return self[n] if yield(self[n])
+      new_array << self[n] if yield(self[n])
       n += 1
     end
+    new_array
   end
 end
