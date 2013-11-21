@@ -20,5 +20,12 @@ describe Deli do
       expect(deli.now_serving).to eq("Nikki")
       expect(deli.line).to eq(["2. Anisha"])
     end
+
+    it 'should return the name of the customer correctly for multiple-digit numbers' do
+      other_deli = Deli.new
+      other_deli.line = ["100. Archer", "101. Lana", "102. Woodhouse"]
+      expect(other_deli.now_serving).to eq("Archer")
+      expect(other_deli.line).to eq(["101. Lana", "102. Woodhouse"])
+    end
   end
 end
