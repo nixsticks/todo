@@ -20,7 +20,7 @@ class Deli
   end
 
   def now_serving
-    current_customer = line.first[3..line.first.length]
+    current_customer = line.first.gsub(/[\d\W]/, "")
     line.delete_at(0)
     current_customer
   end
