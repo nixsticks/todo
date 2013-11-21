@@ -82,11 +82,11 @@ languages = {
 
 new_languages = {}
 
-languages.each do |key, hash|
-  hash.each do |key2, hash2|
-    new_languages[key2] ||= hash2
-    new_languages[key2][:style] ||= []
-    new_languages[key2][:style] << key
+languages.each do |type, hash|
+  hash.each do |name, attributes|
+    new_languages[name] ||= attributes
+    new_languages[name][:style] ||= []
+    new_languages[name][:style] << type
   end
 end
 
