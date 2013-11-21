@@ -15,8 +15,9 @@ class Deli
   end
 
   def take_a_number(customer)
-    number = line.length + 1
-    line << "#{number}. #{customer}"
+    m = (/(\d+)/).match(line.last)
+    number = m[1].to_i + 1
+    line << "#{number.to_s}. #{customer}"
   end
 
   def now_serving
