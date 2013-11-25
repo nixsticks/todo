@@ -47,12 +47,15 @@ class SecretHandshake
     HANDSHAKE.each do |bin, action|
       array << action if bin & number == bin
     end
-    
+    reverse(array)
+  end
+
+  def reverse(array)
     if array.include?("reverse")
       array.delete("reverse")
       array.reverse!
+    else
+      array
     end
-
-    array
   end
 end
