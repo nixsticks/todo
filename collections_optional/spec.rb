@@ -38,7 +38,7 @@ end
 describe '#third_letter' do
   it 'should change the third letter of all strings in an array' do
     stuff = ["candy", :pepper, "wall", :ball, "wacky"]
-    expect(third_letter(stuff, "a")).to eq(["caady", "peaper", "waal", "baal", "waaky"])
+    expect(third_letter(stuff, "a")).to eq(["caady", :pepper, "waal", :ball, "waaky"])
   end
 end
 

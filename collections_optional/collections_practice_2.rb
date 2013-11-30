@@ -45,7 +45,7 @@
 # Change the third letter of all strings in an array.  Your solution should work for arrays that have mixed types of objects inside it.
 
   def third_letter(array, letter)
-    array.map {|word| word.to_s[0..1] + letter + word.to_s[3..word.length]}
+    array.map {|word| word.is_a?(String) ? word[0..1] + letter + word[3..word.length] : word}
   end
 
 # Count the number of times each word appears in a string and store that data in a hash that has the word as the key and the count as the value.
