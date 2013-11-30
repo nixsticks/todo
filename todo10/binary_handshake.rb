@@ -37,7 +37,7 @@ class SecretHandshake
     0b1000 => "jump",
     0b10000 => "reverse"
   }
-
+  
   def initialize(bin)
     @number = bin.to_i(2)
   end
