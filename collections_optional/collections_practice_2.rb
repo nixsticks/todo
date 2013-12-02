@@ -63,17 +63,17 @@
   [{:name => "blake"}, {:name => "blake"}, {:name => "ashley"}]
   [{:name => "blake", :count => 2}, {:name => "ashley", :count => 1}]
 
-  def my_uniq(array)
-    count_hash = {}
+  # def my_uniq(array)
+  #   count_hash = {}
 
-    array.each {|hash| count_hash[hash] = array.select{|other_hash| other_hash == hash}.size}
+  #   array.each {|hash| count_hash[hash] = array.select{|other_hash| other_hash == hash}.size}
 
-    array.uniq!.each do |hash|
-      hash[:count] = count_hash[hash]
-    end
+  #   array.uniq!.each do |hash|
+  #     hash[:count] = count_hash[hash]
+  #   end
 
-    array
-  end
+  #   array
+  # end
 
   def my_uniq(array)
     array.each do |hash|
