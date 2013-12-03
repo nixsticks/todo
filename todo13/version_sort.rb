@@ -1,10 +1,12 @@
 class Array
   def version_sort
     each do |element|
-      element.singleton_class.send(:attr_accessor, :num1, :num2, :letter, :decimals)
+      element.singleton_class.send(:attr_accessor, :fname, :num1, :num2, :letter, :decimals)
 
-      number = /\-(?<first_number>\d+)\.?(?<second_number>[\d\.]+)?(?<letter_version>[a-z])?\.[a-z]/.match(element)
+      number = /(?<filename>.*)\-(?<first_number>\d+)\.?(?<second_number>[\d\.]+)?(?<letter_version>[a-z])?\.[a-z]/.match(element)
       decimals = element.split("").select {|letter| letter == "."}.size
+
+      element.send(:fname=, number[:filename])
 
       element.send(:num1=, number[:first_number].to_i)
 
@@ -16,7 +18,7 @@ class Array
     end
 
     sort! do |a,b|
-      [a.send(:num1), a.send(:num2), a.send(:decimals), a.send(:letter)] <=> [b.send(:num1), b.send(:num2), b.send(:decimals), b.send(:letter)]
+      [a.send(:fname), a.send(:num1), a.send(:num2), a.send(:decimals), a.send(:letter)] <=> [b.send(:fname), b.send(:num1), b.send(:num2), b.send(:decimals), b.send(:letter)]
     end
   end
 end

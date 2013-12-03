@@ -27,8 +27,10 @@ describe Array do
       "foo-2.1.ext",
       "foo-25.ext",
       "foo-6.ext",
+      "c-6.ext"
     ]
     version_sorted_filenames = [
+      "c-6.ext",
       "foo-1.ext",
       "foo-1.3.ext",
       "foo-1.8.7.ext",
