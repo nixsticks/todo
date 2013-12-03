@@ -1,20 +1,22 @@
 class Array
   def version_sort
+    String.send(:attr_accessor, :num1, :num2, :letter, :decimals)
+
     each do |element|
       number = /\-(?<first_number>\d+)\.?(?<second_number>[\d\.]+)?(?<letter_version>[a-z])?\.[a-z]/.match(element)
       decimals = element.split("").select {|letter| letter == "."}.size
 
-      element.instance_variable_set(:@num1, number[:first_number].to_i)
+      element.num1 = number[:first_number].to_i
 
-      number[:second_number] ? element.instance_variable_set(:@num2, number[:second_number].to_f) : element.instance_variable_set(:@num2, 0.0)
+      number[:second_number] ? element.num2 = number[:second_number].to_f : element.num2 = 0.0
 
-      number[:letter_version] ? element.instance_variable_set(:@letter, number[:letter_version]) : element.instance_variable_set(:@letter, "0")
+      number[:letter_version] ? element.letter = number[:letter_version] : element.letter = "0"
 
-      element.instance_variable_set(:@decimals, decimals)
+      element.decimals = decimals
     end
 
     sort! do |a,b|
-      [a.instance_variable_get(:@num1), a.instance_variable_get(:@num2), a.instance_variable_get(:@decimals), a.instance_variable_get(:@letter)] <=> [b.instance_variable_get(:@num1), b.instance_variable_get(:@num2), b.instance_variable_get(:@decimals), b.instance_variable_get(:@letter)]
+      [a.num1, a.num2, a.decimals, a.letter] <=> [b.num1, b.num2, b.decimals, b.letter]
     end
   end
 end
