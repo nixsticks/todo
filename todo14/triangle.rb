@@ -11,13 +11,13 @@ class Triangle
     return :isosceles if x == y || y == z || x == z
     :scalene
   end
-end
 
-def not_valid?
-  s = (x + y + z)/2.0
-  i = (s - x) * (s - y) * (s - z)
+  def not_valid?
+    s = (x + y + z)/2.0
+    i = (s - x) * (s - y) * (s - z)
 
-  x <= 0 || y <= 0 || z <= 0 || i<= 0
+    x <= 0 || y <= 0 || z <= 0 || i<= 0
+  end
 end
 
 class TriangleError < StandardError
