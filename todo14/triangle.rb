@@ -6,22 +6,18 @@ class Triangle
   end
 
   def kind
-    if x <= 0 or y <= 0 or z <= 0 
-      raise TriangleError, "This is not a triangle."
-    end
-    s = (x + y + z)/2.0
-    i = (s - x) * (s - y) * (s - z)
-    if i <= 0
-      raise TriangleError, "This is not a triangle."
-    end
-    if x == y and x == z and y == z
-      :equilateral
-    elsif x == y or y == z or x == z
-      :isosceles
-    else
-      :scalene
-    end
+    raise TriangleError, "This is not a triangle." if not_valid?
+    return :equilateral if x == y && x == z && y == z
+    return :isosceles if x == y || y == z || x == z
+    :scalene
   end
+end
+
+def not_valid?
+  s = (x + y + z)/2.0
+  i = (s - x) * (s - y) * (s - z)
+
+  x <= 0 || y <= 0 || z <= 0 || i<= 0
 end
 
 class TriangleError < StandardError
