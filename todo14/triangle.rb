@@ -6,7 +6,7 @@ class Triangle
   end
 
   def kind
-    raise TriangleError, "This is not a triangle." if not_valid?
+    raise TriangleError if not_valid?
     return :equilateral if x == y && x == z && y == z
     return :isosceles if x == y || y == z || x == z
     :scalene
@@ -21,4 +21,5 @@ def not_valid?
 end
 
 class TriangleError < StandardError
+  "This is not a triangle."
 end
