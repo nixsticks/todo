@@ -32,5 +32,5 @@
 
 
 def array_init(x=5, &block)
-  block ? Array.new(x) { |x| yield x} : Array.new(x) {|x| "#{x * 100}"}
+  block ? Array.new(x) {|x| yield x} : Array.new(x) {|x| "#{x * 100}"}
 end
