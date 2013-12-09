@@ -23,6 +23,7 @@ class Array
   end
 end
 
+
 # SIMPLER METHOD BUT MONKEYPATCHES STRING CLASS SOMEWHAT:
 
 # class Array
