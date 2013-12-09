@@ -1,7 +1,5 @@
 def count(array)
   count = Hash.new(0)
-  array.each do |element|
-    count[element] += 1
-  end
+  array.each {|element| count[element] += 1} 
   count
 end
