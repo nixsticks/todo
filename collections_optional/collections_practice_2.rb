@@ -1,3 +1,5 @@
+require 'ruby-debug'
+
 # Collections Practice
 
 # Finish the first collections assignment if you haven't already.
@@ -60,20 +62,44 @@
   end
 
 # Count the number of times each hash appears in the array, remove any duplicates and add a :count key to each hash with the number of times it appears.
-  [{:name => "blake"}, {:name => "blake"}, {:name => "ashley"}]
+  array = [{:name => "blake"}, {:name => "blake"}, {:name => "ashley"}]
   [{:name => "blake", :count => 2}, {:name => "ashley", :count => 1}]
 
   # def my_uniq(array)
   #   count_hash = {}
 
-  #   array.each {|hash| count_hash[hash] = array.select{|other_hash| other_hash == hash}.size}
+  #   count_hash = {
+  #     {:name => "blake"} => 2
+  #   }
+  #   # create a new, empty count hash
 
-  #   array.uniq!.each do |hash|
-  #     hash[:count] = count_hash[hash]
+  #   array.each do |element|
+  #     duplicates = array.select{|other_hash| other_hash == element}
+  #     count = duplicates.size
+  #     count_hash[element] = count
+  #     # array.select is going over the array AGAIN and checking 
+  #   end
+
+  #   # array.uniq! = [{name: blake}, {name: ashley}]
+  #   # we are now comparing array.uniq! to:
+  #   # count_hash = {
+  #     {name: blake} => 2
+  #     {name: ashley} => 1
+  # }
+  #   no_duplicates_array = array.uniq
+  #   no_duplicates_array.each do |hash|
+  #     # {name: blake}
+  #     count = count_hash[blake_hash] # 2
+  #     blake_hash[:count] = 2
+
+  #     debugger
+  #     puts 'hi'
   #   end
 
   #   array
   # end
+
+
 
   def my_uniq(array)
     array.each do |hash|
@@ -81,6 +107,8 @@
     end
     array.uniq {|hash| hash[:name]}
   end
+
+    p my_uniq(array)
 
 # Take two arrays of hashes and merge the first names and last names into a new array of hashes where each hash has all information about itself.
 
