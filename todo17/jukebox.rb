@@ -49,7 +49,7 @@ def parse_artist(command, lib)
   match = downcase_match(cmd, lib)
   # if keys.include?(cmd)
   if match
-    puts list_artist(command, lib[match])
+    puts list_artist(match, lib[match])
     parsed = true
     # parsed = false
   # else
