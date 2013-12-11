@@ -51,15 +51,6 @@ def parse_artist(command, lib)
   if match
     puts list_artist(match, lib[match])
     parsed = true
-    # parsed = false
-  # else
-  #   lib.each do |artist, hash|
-  #     if command.downcase == artist.to_s.gsub("_"," ").downcase
-  #       puts list_artist(artist, lib)
-  #       parsed = true
-  #       break
-  #     end
-    # end
   end
   parsed
 end
