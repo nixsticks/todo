@@ -1,5 +1,9 @@
 require 'ruby-debug'
 
+def enter_command
+  "Enter a command to continue. Type 'help' for a list of commands."
+end
+
 def downcase_match(cmd, lib)
   matcher = {}
   lib.keys.each {|key| matcher[key] = key.downcase}
@@ -13,6 +17,7 @@ def jukebox(command)
   else
     parse_command(command)
   end
+  puts enter_command
 end
 
 def list_artist(artist, album_hash)
@@ -41,19 +46,20 @@ def parse_artist(command, lib)
   cmd = command.to_sym
   parsed = false
   # keys = lib.keys.map {|key| key.downcase}
-  # match = 
+  match = downcase_match(cmd, lib)
   # if keys.include?(cmd)
-  if 
-    puts list_artist(command, lib[cmd])
-    parsed = false
-  else
-    lib.each do |artist, hash|
-      if command.downcase == artist.to_s.gsub("_"," ").downcase
-        puts list_artist(artist, lib)
-        parsed = true
-        break
-      end
-    end
+  if match
+    puts list_artist(command, lib[match])
+    parsed = true
+    # parsed = false
+  # else
+  #   lib.each do |artist, hash|
+  #     if command.downcase == artist.to_s.gsub("_"," ").downcase
+  #       puts list_artist(artist, lib)
+  #       parsed = true
+  #       break
+  #     end
+    # end
   end
   parsed
 end
@@ -62,14 +68,14 @@ def play_song(command, lib)
   lib.each do |artist, hash|
     hash.each do |album_name, albums_hash|
       albums_hash.each do |album, songs_hash|
-        songs_hash.each do |songs_inner_hash|
-          songs_inner_hash.each do |song_list|
-            song_list.each do |song|
-              if song.downcase == command.downcase
-                puts "Now Playing: #{artist[command].strip}: #{album} - #{song}\n\n"
-                return true
-              # end
-            end
+        songs_hash.each do |song_keyname, song_list|
+          song_list.each do |song|
+            # debugger
+            if song.downcase == command.downcase
+              # debugger
+              puts "Now Playing: #{artist}: #{albums_hash.key(songs_hash)} - #{song}\n\n"
+              return true
+            # end
           end
         end
       end
