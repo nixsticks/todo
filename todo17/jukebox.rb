@@ -66,7 +66,7 @@ def play_song(command, lib)
               # debugger
               puts "Now Playing: #{artist}: #{albums_hash.key(songs_hash)} - #{song}\n\n"
               return true
-            # end
+            end
           end
         end
       end
@@ -78,5 +78,4 @@ end
 def not_found(command)
   puts "I did not understand '#{command}'!\n\n"
   true
-end
 end
