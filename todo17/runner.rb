@@ -25,12 +25,11 @@ def run_command(command)
 end
 
 def show_help
-  help = "Never worked a jukebox, eh? Pretty standard. Available commands are:
+  puts "Never worked a jukebox, eh? Pretty standard. Available commands are:
     'help' - shows this menu
     'list' - lists the whole song library
     or you can enter an artist's name to show that artist's songs
     or you can enter a song title to play that song!"
-  puts help
 end
 
 run

@@ -5,11 +5,8 @@ def enter_command
 end
 
 def downcase_match(cmd, lib)
-  matcher = {}
-  lib.keys.each {|key| matcher[key] = key.downcase}
-  matcher.key(cmd)
+  lib.keys.detect {|key| key.downcase == cmd.downcase}
 end
-
 
 def jukebox(command)
   if command.downcase == "list"
@@ -45,9 +42,7 @@ end
 def parse_artist(command, lib)
   cmd = command.to_sym
   parsed = false
-  # keys = lib.keys.map {|key| key.downcase}
   match = downcase_match(cmd, lib)
-  # if keys.include?(cmd)
   if match
     puts list_artist(match, lib[match])
     parsed = true
@@ -61,9 +56,7 @@ def play_song(command, lib)
       albums_hash.each do |album, songs_hash|
         songs_hash.each do |song_keyname, song_list|
           song_list.each do |song|
-            # debugger
             if song.downcase == command.downcase
-              # debugger
               puts "Now Playing: #{artist}: #{albums_hash.key(songs_hash)} - #{song}\n\n"
               return true
             end
