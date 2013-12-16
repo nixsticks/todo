@@ -1,4 +1,4 @@
-require_relative "using_blocks_refactoring_solution"
+require_relative "refactoring_blocks_1.rb"
 
 describe 'refactoring' do
 
