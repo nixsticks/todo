@@ -23,11 +23,15 @@
 # you will not be able to run this code outside of the test
 
 def pay_by(order, &block)
-  order.compute_cost
-  order.compute_shipping
-  order.compute_tax
-  yield(order)
-  order.ship_goods
+  if block
+    order.compute_cost
+    order.compute_shipping
+    order.compute_tax
+    yield(order)
+    order.ship_goods
+  else
+    raise StandardError, 'No block was given.'
+  end
 end
 
 #code that is the same:
