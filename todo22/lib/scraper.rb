@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'nokogiri'
+require 'yaml'
 
 class Scraper
   attr_reader :html
@@ -20,5 +21,9 @@ class Scraper
     hash = {}
     dates.size.times {|i| hash[holidays[i]] = dates[i]}
     hash
+  end
+
+  def save
+    File.open("holidays.yaml", "w") {|file| file.puts YAML::dump(holiday_hash)}
   end
 end

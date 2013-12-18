@@ -1,12 +1,12 @@
+require 'yaml'
 require 'bundler'
 Bundler.require
-
-require_relative './lib/scraper'
 
 module Calendar
   class App < Sinatra::Application
     set :today, Time.now.strftime("%b %-d")
-    set :holidays, Scraper.new("http://www.timeanddate.com/holidays/us/").holiday_hash
+    Scraper.new("http://www.timeanddate.com/holidays/us").save if Time.now.strftime("%b %-d") == "Jan 1"
+    set :holidays, YAML::load(File.open('./lib/holidays.yaml'))
 
     get '/' do
       @holidays = settings.holidays
