@@ -15,22 +15,16 @@ module Calendar
 
     get '/birthday' do
       birthday = Time.new(1987, 12, 18).strftime("%b %-d")
-      if birthday == settings.today
-        erb :yes
-      else
-        erb :no
-      end
+      birthday == settings.today ? @answer = "YES!" : @answer = "NO."
+      erb :answer
     end
 
     get '/:event' do
       event = params[:event]
       @event = settings.holidays[event.to_s]
       if @event
-        if @event == settings.today
-          erb :yes
-        else
-          erb :no
-        end
+        @event == settings.today ? @answer = "YES!" : @answer = "NO."
+        erb :answer
       else
         erb :not_found
       end
