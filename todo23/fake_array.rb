@@ -17,4 +17,3 @@ class FakeArray
     elements[i]
   end
 end
- 
