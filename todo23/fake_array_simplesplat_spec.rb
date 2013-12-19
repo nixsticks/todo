@@ -1,4 +1,4 @@
-require_relative 'fake_array_anothersolution'
+require_relative 'fake_array_simplesplat'
 
 describe FakeArray do
   describe '#each' do
