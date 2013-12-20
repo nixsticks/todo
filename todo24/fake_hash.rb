@@ -5,11 +5,11 @@ class FakeHashWrapper
   end
 
   def []=(key, value)
-    elements[key] = value
+    elements[key.to_sym] = value
   end
 
   def [](key)
-    elements[key.to_sym] || elements[key.to_s]
+    elements[key.to_sym]
   end
 
   def keys
