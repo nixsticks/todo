@@ -17,7 +17,6 @@ class FakeHashWrapper
   end
 
   def first_letter(letter)
-    keys = elements.keys.select {|key| key[0] == letter}
-    elements.values.select {|value| keys.include?(elements.key(value))}
+    elements.values.select {|value| (elements.key(value))[0] == letter}
   end
 end
