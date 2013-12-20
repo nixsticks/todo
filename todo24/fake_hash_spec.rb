@@ -11,7 +11,9 @@ describe FakeHashWrapper do
     it 'should return values regardless of whether they are strings or symbols' do
       fake = FakeHashWrapper.new
       fake[:blake] = 'the best'
+      fake['anisha'] = 'awesome'
       expect(fake['blake']).to eq('the best')
+      expect(fake[:anisha]).to eq('awesome')
     end
   end
 
@@ -21,7 +23,7 @@ describe FakeHashWrapper do
       fake[:giraffes] = 'cute'
       fake[:cats] = 'the best'
       fake[:dogs] = 'also the best'
-      expect(fake.keys).to eq([:cats, :dogs, :giraffes])
+      expect(fake.keys).to eq([:giraffes, :dogs, :cats])
     end
   end
 

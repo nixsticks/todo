@@ -13,7 +13,7 @@ class FakeHashWrapper
   end
 
   def keys
-    elements.keys.sort
+    elements.keys.sort.reverse
   end
 
   def first_letter(letter)
