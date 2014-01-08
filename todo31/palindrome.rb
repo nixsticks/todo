@@ -1,7 +1,10 @@
-require 'debugger'
-
 def longest_palindrome(string)
-  counter = string.length - 1
+  if string.length % 2 == 0
+    counter = string.length
+  else
+    counter = string.length - 1
+  end
+
   split = string.split("")
   palindromes = []
 
