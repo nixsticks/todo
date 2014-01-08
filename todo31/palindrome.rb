@@ -1,22 +1,21 @@
 def longest_palindrome(string)
-  if string.length % 2 == 0
-    counter = string.length
-  else
-    counter = string.length - 1
-  end
+  i = counter(string.length)
 
-  split = string.split("")
-  palindromes = []
-
-  while counter > 0
-    array = split.each_cons(counter).to_a
-    array.each do |inner_array|
-      i = inner_array.size
-      j = inner_array.size/2
-      return inner_array.join if inner_array[0..(j-1)] == inner_array[j..i].reverse
-    end
-    counter -= 2
+  while i > 0
+    array = string.split("").each_cons(i).to_a
+    array.each {|inner| return inner.join if palindrome?(inner)}
+    i -= 2
   end
 end
 
-#each_cons even sizes. each slice half. see if half
+def counter(i)
+  i % 2 == 0 ? i : (i - 1)
+end
+
+def string_to_array(string)
+  string.split("")
+end
+
+def palindrome?(array)
+  array[0...array.size/2] == array[array.size/2..array.size].reverse
+end
