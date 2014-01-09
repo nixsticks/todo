@@ -15,7 +15,7 @@ end
 def palindrome?(array)
   if array.size % 2 == 0
     array[0...array.size/2] == array[array.size/2..array.size].reverse
- else
+  else
     array[0...array.size/2] == array[(array.size/2) + 1..array.size].reverse
- end
+  end
 end

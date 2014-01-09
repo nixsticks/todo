@@ -1,0 +1,168 @@
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2014-01-09 09:06:43 -0500
+Served asset /rails.png - 304 Not Modified (11ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2014-01-09 09:07:02 -0500
+Processing by GamesController#index as HTML
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::StatementInvalid (Could not find table 'games'):
+  app/controllers/games_controller.rb:4:in `index'
+
+
+  Rendered /Users/nthean/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-3.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.4ms)
+  Rendered /Users/nthean/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-3.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /Users/nthean/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-3.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.8ms)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2014-01-09 09:07:06 -0500
+Processing by GamesController#new as HTML
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::StatementInvalid (Could not find table 'games'):
+  app/controllers/games_controller.rb:8:in `new'
+  app/controllers/games_controller.rb:8:in `new'
+
+
+  Rendered /Users/nthean/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-3.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+  Rendered /Users/nthean/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-3.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /Users/nthean/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-3.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.6ms)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2014-01-09 09:07:09 -0500
+Processing by GamesController#new as HTML
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::StatementInvalid (Could not find table 'games'):
+  app/controllers/games_controller.rb:8:in `new'
+  app/controllers/games_controller.rb:8:in `new'
+
+
+  Rendered /Users/nthean/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-3.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered /Users/nthean/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-3.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /Users/nthean/.rvm/gems/ruby-2.0.0-p247@railstutorial_rails_4_0/gems/actionpack-3.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.1ms)
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateGames (20140109134655)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20140109134655')
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("games")
+
+
+Started GET "/games/new" for 127.0.0.1 at 2014-01-09 09:07:34 -0500
+Processing by GamesController#new as HTML
+  Rendered games/_form.html.erb (14.1ms)
+  Rendered games/new.html.erb within layouts/application (20.3ms)
+Compiled application.css  (0ms)  (pid 57696)
+Compiled application.js  (0ms)  (pid 57696)
+Completed 200 OK in 59ms (Views: 54.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-09 09:07:34 -0500
+Served asset /application.js - 200 OK (6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-09 09:07:34 -0500
+Served asset /application.css - 200 OK (2ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2014-01-09 09:07:39 -0500
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kgWt/sRIQLP4rYtHRzOjnutuCsRS98ZHIqCfY1bwwlY=", "game"=>{"name"=>"Ninja"}, "commit"=>"Create Game"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (6.5ms)[0m  INSERT INTO "games" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Thu, 09 Jan 2014 14:07:39 UTC +00:00], ["name", nil], ["updated_at", Thu, 09 Jan 2014 14:07:39 UTC +00:00]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 13ms (ActiveRecord: 7.9ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2014-01-09 09:07:39 -0500
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mGame Load (0.2ms)[0m  SELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered games/show.html.erb within layouts/application (29.7ms)
+Completed 200 OK in 37ms (Views: 34.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-09 09:07:39 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2014-01-09 09:08:26 -0500
+Processing by GamesController#index as HTML
+  [1m[36mGame Load (0.2ms)[0m  [1mSELECT "games".* FROM "games" [0m
+  Rendered games/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-09 09:08:26 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-09 09:08:26 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/games/new" for 127.0.0.1 at 2014-01-09 09:08:45 -0500
+Processing by GamesController#new as HTML
+  Rendered games/_form.html.erb (2.7ms)
+  Rendered games/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 13ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-09 09:08:45 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-09 09:08:45 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started POST "/games" for 127.0.0.1 at 2014-01-09 09:08:49 -0500
+Processing by GamesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kgWt/sRIQLP4rYtHRzOjnutuCsRS98ZHIqCfY1bwwlY=", "game"=>{"name"=>"Ninja"}, "commit"=>"Create Game"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "games" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Thu, 09 Jan 2014 14:08:49 UTC +00:00], ["name", "Ninja"], ["updated_at", Thu, 09 Jan 2014 14:08:49 UTC +00:00]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/games/2
+Completed 302 Found in 9ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/games/2" for 127.0.0.1 at 2014-01-09 09:08:49 -0500
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGame Load (0.2ms)[0m  [1mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  Rendered games/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-09 09:08:49 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-09 09:08:49 -0500
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/games" for 127.0.0.1 at 2014-01-09 09:08:50 -0500
+Processing by GamesController#index as HTML
+  [1m[35mGame Load (0.3ms)[0m  SELECT "games".* FROM "games" 
+  Rendered games/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-01-09 09:08:50 -0500
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-01-09 09:08:50 -0500
+Served asset /application.js - 304 Not Modified (0ms)
