@@ -1,0 +1,7 @@
+%h1 Editing ride
+
+= render 'form'
+
+= link_to 'Show', park_ride_path(@ride.park, @ride)
+\|
+= link_to 'Back', park_rides_path(@ride.park, @ride)

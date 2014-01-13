@@ -1,0 +1,21 @@
+%h1 Listing rides
+
+%table
+  %tr
+    %th Name
+    %th Park
+    %th
+    %th
+    %th
+
+  - @rides.each do |ride|
+    %tr
+      %td= ride.name
+      %td= ride.park.name
+      %td= link_to 'Show', park_ride_path(ride.park, ride)
+      %td= link_to 'Edit', edit_park_ride_path(ride.park, ride)
+      %td= link_to 'Destroy', park_ride_path(ride.park, ride), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Ride', new_park_ride_path

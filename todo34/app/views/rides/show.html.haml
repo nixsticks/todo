@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @ride.name
+%p
+  %b Park:
+  = @ride.park.name
+
+= link_to 'Edit', edit_park_ride_path(@ride.park, @ride)
+\|
+= link_to 'Back', park_rides_path(@ride.park, @ride)

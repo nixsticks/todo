@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @park.name
+%p
+  %b Location:
+  = @park.location
+%p
+  %b Rides:
+%ul
+  - @park.rides.each do |ride|
+    %li= link_to ride.name, park_ride_path(@park, ride)
+
+= link_to 'Edit', edit_park_path(@park)
+\|
+= link_to 'Back', parks_path
+
+%p
+  %b Add New Ride
+= render 'rides/form'
