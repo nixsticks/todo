@@ -1,12 +1,10 @@
 class Array
   def my_transpose
-    array = []
     return self if self.empty?
-    self.first.size.times do |i|
-      array << each_with_object([]) do |inner_array, container|
-        container << inner_array[i]
-      end
+    transpose = []
+    first.each_index do |i|
+      transpose << each_with_object([]) {|inner, container| container << inner[i]}
     end
-    array
+    transpose
   end
 end
