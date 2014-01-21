@@ -1,6 +1,5 @@
 def separate_with_comma(n)
   number = n.to_s
-  length = number.length
   i = number.length / 3
   regex = ["(\\d{3})$"]
   (i-1).times {regex.unshift("(\\d{3})")}
