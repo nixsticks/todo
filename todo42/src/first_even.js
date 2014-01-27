@@ -4,4 +4,5 @@ function first_even(array) {
       return element;
     }
   }
+  return null;
 }
